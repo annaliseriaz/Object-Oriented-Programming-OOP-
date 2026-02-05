@@ -1,0 +1,58 @@
+public class firstmeet_firstactivity {
+
+	public static void main(String[] args) {
+		int[][] board = {{23,5,6,15,18},
+				         {4,16,24,67,10},
+				         {12,54,23,76,11},
+				         {1,12,34,22,8},
+				         {81,54,32,67,33},
+				         {12,34,76,78,9}};
+		
+		TwoDimArraysMethods.printMatrix(board);
+		System.out.println();
+		
+		TwoDimArraysMethods.sumRows(board);
+		System.out.println();
+
+		
+		TwoDimArraysMethods.largestInRows(board);
+	}
+}
+
+public class TwoDimArraysMethods {
+	public static void printMatrix(int[][] matrix) {
+		for(int row = 0; row < matrix.length; row++) {
+			for (int col = 0; col <matrix[row].length; col++)
+				System.out.printf("%7d", matrix[row][col]);
+			
+			System.out.println();
+		}
+	}
+	
+	public static void sumRows (int[][] matrix) {
+		int sum;
+		
+		for (int row = 0; row < matrix.length; row++) {
+			sum = 0;
+			
+			for (int col = 0; col < matrix[row].length; col++)
+				sum = sum + matrix[row][col];
+			System.out.println("The sum of the elements of row " + (row + 1) + " = " + sum + ".");
+		}
+	}
+	
+	public static void largestInRows(int[][] matrix) {
+		int largest;
+		
+		for (int row = 0; row < matrix.length; row++) {
+			largest = matrix[row][0];
+			
+			
+			for (int col = 1; col < matrix[row].length; col++)
+				if (largest < matrix[row][col])
+					largest = matrix[row][col];
+			
+			System.out.println("The largest element of row " + (row + 1) + " = " + largest + ".");
+		}
+	}
+}
